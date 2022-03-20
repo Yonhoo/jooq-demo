@@ -111,6 +111,12 @@
                                 <user>${db.username}</user>
                             </jdbc>
                             <generator>
+								<generate><pojos>true</pojos>
+									<daos>true</daos>
+									<interfaces>true</interfaces>
+									<springAnnotations>true</springAnnotations>
+								</generate>
+								
                                 <database>
                                     <includes>.*</includes>
 									<excludes></excludes>
