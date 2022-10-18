@@ -6,7 +6,15 @@ step "test-script" {
         environments = ["development"]
         properties = {
             Octopus.Action.RunOnServer = "true"
-            Octopus.Action.Script.ScriptBody = "test"
+            Octopus.Action.Script.ScriptBody = <<-EOT
+                Set-OctopusConnectionInfo -URL "https://tyon.octopus.app" -APIKey "API-K0HOCWQXRENYSWYTOKEJCWS9EXE8O"
+                
+                Install-Module -Name Octoposh -force
+                
+                Import-Module Octoposh
+                
+                Get-command -module OctoPosh
+            EOT
             Octopus.Action.Script.ScriptSource = "Inline"
             Octopus.Action.Script.Syntax = "PowerShell"
         }
