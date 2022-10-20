@@ -10,6 +10,24 @@ step "test-script" {
             Octopus.Action.Script.ScriptSource = "Inline"
             Octopus.Action.Script.Syntax = "Bash"
         }
-        worker_pool = "hosted-ubuntu"
+        worker_pool = "default-worker-pool-1"
+    }
+}
+
+step "deploy-docker-image" {
+    name = "deploy docker image"
+    properties = {
+        Octopus.Action.TargetRoles = "bme-transaction"
+    }
+
+    action {
+        action_type = "Octopus.Script"
+        properties = {
+            Octopus.Action.RunOnServer = "false"
+            Octopus.Action.Script.ScriptBody = "deploy_docker_image"
+            Octopus.Action.Script.ScriptSource = "Inline"
+            Octopus.Action.Script.Syntax = "Bash"
+        }
+        worker_pool_variable = ""
     }
 }
