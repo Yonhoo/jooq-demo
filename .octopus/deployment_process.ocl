@@ -6,7 +6,10 @@ step "test-script" {
         environments = ["development"]
         properties = {
             Octopus.Action.RunOnServer = "true"
-            Octopus.Action.Script.ScriptBody = "echo \"hello world\""
+            Octopus.Action.Script.ScriptBody = <<-EOT
+                echo "hello world"
+                source testbashscript.sh
+            EOT
             Octopus.Action.Script.ScriptSource = "Inline"
             Octopus.Action.Script.Syntax = "Bash"
         }
