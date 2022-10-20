@@ -9,6 +9,7 @@ step "test-script" {
             Octopus.Action.Script.ScriptBody = <<-EOT
                 echo "hello world"
                 source testbashscript.sh
+                $(get_octopusvariable "*")
             EOT
             Octopus.Action.Script.ScriptSource = "Inline"
             Octopus.Action.Script.Syntax = "Bash"
