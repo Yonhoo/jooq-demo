@@ -13,21 +13,3 @@ step "test-script" {
         worker_pool = "hosted-ubuntu"
     }
 }
-
-step "deploy-docker-image" {
-    name = "deploy docker image"
-    properties = {
-        Octopus.Action.TargetRoles = "bme-transaction"
-    }
-
-    action {
-        action_type = "Octopus.Script"
-        properties = {
-            Octopus.Action.RunOnServer = "false"
-            Octopus.Action.Script.ScriptBody = "deploy_docker_image"
-            Octopus.Action.Script.ScriptSource = "Inline"
-            Octopus.Action.Script.Syntax = "Bash"
-        }
-        worker_pool_variable = ""
-    }
-}
