@@ -24,9 +24,11 @@ step "git-pull-https" {
     action {
         properties = {
             GitHttpsBranchName = "master"
+            GitHttpsUrl = "https://github.com/Yonhoo/jooq-demo.git"
             Octopus.Action.RunOnServer = "true"
             Octopus.Action.Template.Id = "ActionTemplates-1"
             Octopus.Action.Template.Version = "8"
+            Username = "cookies_yon@163.com"
         }
         worker_pool = "default-worker-pool-1"
     }
