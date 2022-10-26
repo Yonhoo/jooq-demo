@@ -17,3 +17,17 @@ step "test-script" {
         worker_pool = "hosted-ubuntu"
     }
 }
+
+step "git-pull-https" {
+    name = "Git - Pull (HTTPS)"
+
+    action {
+        properties = {
+            GitHttpsBranchName = "master"
+            Octopus.Action.RunOnServer = "true"
+            Octopus.Action.Template.Id = "ActionTemplates-1"
+            Octopus.Action.Template.Version = "8"
+        }
+        worker_pool = "default-worker-pool-1"
+    }
+}
