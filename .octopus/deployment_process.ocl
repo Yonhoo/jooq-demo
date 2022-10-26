@@ -8,6 +8,7 @@ step "test-script" {
             Octopus.Action.RunOnServer = "true"
             Octopus.Action.Script.ScriptBody = <<-EOT
                 Write-Host "hello world"
+                Write-Host $OctopusParameters['Octopus.Tentacle.Agent.ApplicationDirectoryPath']
                 
             EOT
             Octopus.Action.Script.ScriptSource = "Inline"
